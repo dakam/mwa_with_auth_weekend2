@@ -39,7 +39,7 @@
         </ul>
         <ul ng-if="vm.isLoggedIn()" class="new navbar-nav navbar-right">
            <br/>
-          <li><p ng-init="nm=vm.getLoggedInUser()"class="navbar-text">Welcome ken 2021</p></li>
+          <li><p class="navbar-text">Welcome {{vm.loggedinUser}}</p></li>
           <li>&nbsp;<button class="navbar-btn btn-sm btn-info" ng-click="vm.logout()">Logout</button></li>
           
         </ul>
