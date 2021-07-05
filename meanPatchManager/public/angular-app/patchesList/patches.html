@@ -1,0 +1,38 @@
+
+
+
+<div class="card">
+    <div class="card-header heading">
+        <h2> <strong>Available Patch entries</strong></h2>
+
+    </div>
+    <div class="card-body">
+      <div card-header>
+      <form  ng-submit="vm.searchPatches()">Search Patch Info: <input type="text" name="searchText" ng-model="vm.searchText" /> &nbsp;&nbsp; <input  name="Search" type="submit" value="Search" class="btn btn-success" ></button> </form>
+      <br/>
+    </div>
+        <table class="table table-striped table-responsive-md btn-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Patch Name</th>
+                <th>Vendor</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody >
+              <tr ng-repeat="patch in vm.patches">
+                <th scope="row">{{$index +1}}</th>
+                <td>  
+                    {{patch.name }}
+                </td>
+                <td>{{patch.vendor}}</td>
+                <td><span class="btn btn-success style-2"><a ng-href="#!/patches/{{patch._id}}">Details</a></span></td><td><button class="btn btn-danger style-2"  ng-click="vm.deletePatch(patch._id)" ng-href="#!/patches/{{patch._id}}">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+
+

@@ -1,0 +1,46 @@
+
+<div class="alert alert-danger" ng-if="vm.err" >
+    {{vm.error}}
+</div>
+
+<div class="single-outer">
+
+<div class="card">
+    <div class="card-header heading">
+        <h2> {{vm.patch.name }} </h2>
+    </div>
+<div class="card-body">
+    <div class="card" >
+        <ul  class="list-group list-group-flush">
+         <li class="list-group-item"><span class="badge bg-primary">Description</span> {{vm.patch.description}}</li>
+         <li class="list-group-item"><span class="badge bg-primary">Vendor</span> {{vm.patch.vendor}}</li>
+         <li class="list-group-item"><span class="badge bg-primary">Release Year</span> {{vm.patch.year}}</li>
+       
+        </ul>
+      </div><br/><br/>
+      <div >
+
+        <table   class="table table-striped table-responsive-md" > 
+          <thead>
+            <tr>
+              <th>Name</th> <th>OS</th> <th>Status</th>
+            </tr>
+          </thead>
+              <tr ng-repeat="client in vm.patch.clients track by $index">
+                  <td>{{client.name}}</td> <td>{{client.os}}</td> <td>{{client.status}}</td>
+              </tr>
+      </table> 
+
+      </div>
+
+      <div class="card-footer">
+
+        <span class="btn btn-success "><a ng-href="#!/patches/{{patch._id}}">Register Client</a></span>
+
+      </div>
+
+  
+</div>
+ </div>
+
+</div>

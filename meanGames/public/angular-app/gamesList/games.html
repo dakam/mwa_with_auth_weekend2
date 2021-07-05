@@ -1,0 +1,71 @@
+
+<h1> Mean Games List</h1>
+
+<div class="mygames">
+
+<ul ng-repeat="game in vm.games  | orderBy: 'title'"> 
+
+    <li> <a ng-href="#!/games/{{game._id}}">{{game.title}}</a> </li>     
+
+</ul>
+
+</div>
+
+
+<div  ng-show={{vm.isLoggedIn()}}  >
+
+    <h1> Add New Mean Game</h1>
+
+
+    <div class="alert alert-danger" ng-if="vm.err" >
+        {{vm.error}}
+    </div>
+    
+    <div class="alert alert-success" ng-if="vm.success" >
+        <h5>{{vm.message}}</h5>
+    </div>
+
+    <form  name="vm.addGameForm" ng-submit="vm.addGame()">
+        <fieldset>
+        <div class="form-group">
+        <label for="title">Title </label> 
+        <input name="title" class="form-control" ng-model="vm.title" type="text" id="title"  required/> 
+        </div>
+        <div class="form-group">
+            <label for="price">Price </label> 
+            <input name="price" class="form-control" ng-model="vm.price" type="number" id="price" ng-pattern="/^[0-9]{1,}$/" required /> 
+        </div>
+        
+        <div class="form-group">
+            <label for="year">Year </label> 
+            <input name="year" class="form-control" ng-model="vm.year" type="number" id="year" required/> 
+        </div>
+
+        <div class="form-group">
+            <label for="minAge">Minimum Age </label> 
+            <input name="minAge" class="form-control" ng-model="vm.minAge" type="number" id="minAge" required/> 
+        </div>
+        
+        <div class="form-group">
+            <label for="rate">Rate </label> 
+            <input name="rate" class="form-control" ng-model="vm.rate" type="number" id="rate" required /> 
+        </div>
+        <div class="form-group">
+            <label for="minPlayers">Minimum Players</label> 
+            <input name="minPlayers" class="form-control" ng-model="vm.minPlayers" type="text" id="minPlayers" required/> 
+        </div>
+        <div class="form-group">
+            <label for="maxPlayers">Maximum Players</label> 
+            <input name="maxPlayers" class="form-control" ng-model="vm.maxPlayers" type="text" id="maxPlayers" /> 
+        </div>
+        <div class="form-group">
+            <label for="designers">Designers</label> 
+            <input name="designers" class="form-control" ng-model="vm.designers" type="text" id="designers" /> 
+        </div>
+        
+        <br/>
+        
+        <button class="btn btn-success"  name="submit" ng-model="vm.sub" >Submit </button>
+        </fieldset> 
+        </form>
+</div>

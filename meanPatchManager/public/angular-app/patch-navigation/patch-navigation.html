@@ -1,0 +1,51 @@
+<div ng-controller="LoginController as vm" class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" >
+    <div class="container">
+     
+
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a ng-class="vm.isActiveTab(' ')" class="nav-link" href="#!/">Home</a>
+          </li>
+
+  
+          <li class="nav-item">
+            <a ng-class="vm.isActiveTab('patches')" class="nav-link" href="#!/patches">Patch List</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#!/patch/add">Add Patch</a>
+          </li>
+          <li ng-if="!vm.isLoggedIn()" ng-class="vm.isActiveTab('register')" class="nav-item">
+            <a  class="nav-link" href="#!/users/register">Register</a>
+         
+            
+          </li>
+          <li ng-if="vm.isLoggedIn()" ng-class="vm.isActiveTab('profile')" class="nav-item">
+            
+            <a  class="nav-link" href="#!/users/profile">profile</a>
+            
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ms-md-auto">
+          <li ng-if="!vm.isLoggedIn()" class="nav-item">
+
+            <a class="nav-link" href="#!/users/login">Login</a>
+            
+          </li>
+        
+        </ul>
+        <ul ng-if="vm.isLoggedIn()" class="new navbar-nav navbar-right">
+           <br/>
+          <li><p ng-init="nm=vm.getLoggedInUser()"class="navbar-text">Welcome ken 2021</p></li>
+          <li>&nbsp;<button class="navbar-btn btn-sm btn-info" ng-click="vm.logout()">Logout</button></li>
+          
+        </ul>
+
+      
+      </div>
+    </div>
+  </div>
+  
